@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#301F58",
         borderRadius: '100%',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     letter: {
         color: "#a180ecff",

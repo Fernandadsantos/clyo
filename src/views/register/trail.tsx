@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
     },
     cards: {
         margin: 'auto',
-        gap: 30
     }
 
 });
