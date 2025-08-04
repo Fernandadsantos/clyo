@@ -32,7 +32,7 @@ function CardComponent({ children, width, height, type }: CardParams) {
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: "#E8DEF8",
+        backgroundColor: "#fef7ff",
         justifyContent: 'center',
         margin: 'auto',
         marginVertical: 20

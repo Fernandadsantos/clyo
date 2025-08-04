@@ -26,7 +26,6 @@ function CardInsight() {
 
 const styles = StyleSheet.create({
     card_content: {
-        backgroundColor: "#E8DEF8",
         flexDirection: 'row',
         alignItems: 'center',
         gap: 10

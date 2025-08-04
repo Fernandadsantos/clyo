@@ -18,7 +18,7 @@ function OptionCard({ title, subtitle }: OptionCardParams) {
                     <Text style={[styles.subtitle, { width: width * 0.68 }]}>{subtitle}</Text>
                 </View>
                 <View>
-                    <Icon name="arrow-right" size={20} color="#301F58" iconStyle='solid' />
+                    <Icon name="chevron-right" size={20} color="#301F58" iconStyle='solid' />
                 </View>
             </CardComponent>
         </View>
