@@ -1,22 +1,20 @@
-import { ScrollView, StyleSheet, Text, useWindowDimensions, View } from 'react-native';
+import { StyleSheet, Text, useWindowDimensions, View } from 'react-native';
 import SearchInput from '../../components/searchInput/searchInput';
-import Btn from '../../components/btn/btn';
-import Icon from '@react-native-vector-icons/fontawesome6';
-import { useState } from 'react';
-import ContentCard from '../../components/contentCard/contentCard';
+// import Btn from '../../components/btn/btn';
+// import { useState } from 'react';
 
 function SearchView() {
     const { height } = useWindowDimensions();
-    const [activeButtonId, setActiveButtonId] = useState<string | null>("btn1");
-    const BTN_CONFIG = [
-        { id: 'btn1', text: 'Fóruns' },
-        { id: 'btn2', text: 'Conteúdos' },
-    ];
+    // const [activeButtonId, setActiveButtonId] = useState<string | null>("btn1");
+    // const BTN_CONFIG = [
+    //     { id: 'btn1', text: 'Fóruns' },
+    //     { id: 'btn2', text: 'Conteúdos' },
+    // ];
 
     return (
         <View style={[styles.container, { height: height - 60 }]}>
             <SearchInput />
-            <View style={styles.btns}>
+            {/* <View style={styles.btns}>
                 {
                     BTN_CONFIG.map((btn) => (
                         <View key={btn.id}>
@@ -30,31 +28,12 @@ function SearchView() {
                         </View>
                     ))
                 }
-                <Icon
-                    name="arrow-up-wide-short"
-                    size={20} color="#373638" iconStyle='solid'
-                />
-            </View>
-            <ScrollView >
-                {
-                    activeButtonId === "btn1" ?
-                        (
-                            <View>
-                                <ContentCard />
-                                <ContentCard />
-                                <ContentCard />
-                                <ContentCard />
-
-                            </View>
-                        )
-                        :
-                        (
-                            <View>
-                                <Text>conteúdo</Text>
-                            </View>
-                        )
-                }
-            </ScrollView>
+            </View> */}
+            {
+                <View style={styles.msg}>
+                    <Text style={styles.msgText}>Esta função ainda não está disponível :/</Text>
+                </View>
+            }
         </View>
     );
 }
@@ -62,7 +41,6 @@ function SearchView() {
 const styles = StyleSheet.create({
     container: {
         padding: 20,
-        paddingTop: 50
     },
     input: {
         backgroundColor: "#e8def8",
@@ -78,7 +56,15 @@ const styles = StyleSheet.create({
         paddingVertical: 25,
         gap: 20,
         alignItems: 'center',
-        paddingLeft: 30
+    },
+    msg: {
+        alignItems: 'center',
+        margin: 'auto'
+    },
+    msgText: {
+        fontSize: 16,
+        fontWeight: '400',
+        color: '#301F58'
     }
 
 });

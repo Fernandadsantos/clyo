@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import { Dimensions, StyleSheet, View } from 'react-native';
 import Register from './src/views/register/register';
 import Trail from './src/views/register/trail';
@@ -15,6 +8,13 @@ import Icon from '@react-native-vector-icons/fontawesome6';
 import { PaperProvider } from 'react-native-paper';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import SearchView from './src/views/seachView/searchView';
+import Perfil from './src/views/perfil/perfil';
+import Login from './src/views/login/login';
+import Consulations from './src/views/consultations/consultations';
+import SplashScreen from 'react-native-splash-screen';
+import { useEffect } from 'react';
+import Statistics from './src/views/statistics/statistics';
+import Tratamentos from './src/views/tratamentos/tratamentos';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -48,8 +48,8 @@ function Tabs() {
           }}
         />
         <Tab.Screen
-          name="Buscar"
-          component={Register}
+          name="Statistic"
+          component={Statistics}
           options={{
             // eslint-disable-next-line react/no-unstable-nested-components
             tabBarIcon(props) {
@@ -84,8 +84,8 @@ function Tabs() {
           }}
         />
         <Tab.Screen
-          name="Estante"
-          component={Home}
+          name="Perfil"
+          component={Perfil}
           options={{
             // eslint-disable-next-line react/no-unstable-nested-components
             tabBarIcon(props) {
@@ -123,6 +123,10 @@ const styles = StyleSheet.create({
 
 function App() {
 
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <PaperProvider>
       <NavigationContainer
@@ -135,10 +139,14 @@ function App() {
           initialRouteName="Home"
           screenOptions={{
             headerShown: false,
+            statusBarStyle: "dark",
           }}>
           <Stack.Screen name="Register" component={Register} />
           <Stack.Screen name="Home" component={Tabs} />
           <Stack.Screen name="Trail" component={Trail} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Consultas" component={Consulations} />
+          <Stack.Screen name="Tratamentos" component={Tratamentos} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

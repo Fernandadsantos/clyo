@@ -10,20 +10,17 @@ interface BtnProps {
     onPress: () => void;
 }
 
-function Btn({ text, height, width, isActive, onPress }: BtnProps) {
-    const textColor = isActive ? "#875aec" : "#fff";
-    const backColor = isActive ? "#e8def8" : "#875aec";
+function Btn({ text, height, width, onPress }: BtnProps) {
 
     return (
         <View >
-            <Button mode="elevated"
-                style={[styles.btn, { height: height, backgroundColor: backColor, width: width }]}
+            <Button mode="elevated" disabled={true}
+                style={[styles.btn, { height: height, backgroundColor: "#e3deecff", width: width }]}
                 onPress={() => onPress()}
-                textColor={textColor}
+                textColor='#000000ff'
             >
                 {text}
             </Button>
-
         </View >
     );
 }

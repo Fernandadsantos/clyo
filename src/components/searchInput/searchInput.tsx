@@ -9,6 +9,7 @@ function SearchInput() {
     return (
         <View style={styles.container}>
             <TextInput
+                disabled={true}
                 mode='outlined'
                 placeholder='Título'
                 value={textIntput}

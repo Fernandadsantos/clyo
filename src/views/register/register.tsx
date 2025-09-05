@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { StatusBar, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { Pressable, StatusBar, StyleSheet, Text, useColorScheme, useWindowDimensions, View } from 'react-native';
 import { Button, Divider, TextInput } from 'react-native-paper';
+import Icon from '@react-native-vector-icons/fontawesome6';
+import { useNavigation } from '@react-navigation/native';
 
 function Register() {
     const isDarkMode = useColorScheme() === 'dark';
     const [textIntput, setTextInput] = useState("");
     const { width, height } = useWindowDimensions();
+    const navigation = useNavigation<any>();
 
     return (
         <View style={[styles.container, { width: width * 0.9, height: height * 0.5 }]}>
@@ -37,11 +40,12 @@ function Register() {
                         <Divider horizontalInset={true} style={{ height: 1, width: 100 }} />
                     </View>
                     <View style={{ gap: 5 }}>
-                        <Button mode='contained' style={styles.btn} textColor="#000">
-                            Continue com Google
+                        <Button mode='contained' style={styles.btn} textColor="#000" >
+                            <Text ><Icon name='google' size={19} color='' iconStyle='brand' />  Continue com Google</Text>
                         </Button>
                         <Button mode='contained' style={styles.btn} textColor="#000">
-                            Continue com Apple
+
+                            <Text><Icon name='apple' size={21} iconStyle='brand' />  Continue com Apple</Text>
                         </Button>
                     </View>
                     <View>
@@ -50,6 +54,14 @@ function Register() {
                             e <Text style={{ fontWeight: '700' }}>Política de Privacidade</Text>
                         </Text>
                     </View>
+                </View>
+                <View >
+                    <Pressable onPress={() => navigation.navigate("Login", {})} style={{ alignItems: 'center' }} >
+                        <Text style={{ fontSize: 15, textAlign: 'center', fontWeight: '600' }}>
+                            Já tem conta?
+                            <Text style={{ textDecorationLine: 'underline', color: "#4F378A", letterSpacing: 0.2 }}>Faça login</Text>
+                        </Text>
+                    </Pressable>
                 </View>
             </View>
         </View>
@@ -100,6 +112,8 @@ const styles = StyleSheet.create({
     btn: {
         borderRadius: 10,
         backgroundColor: "#e8def85d",
+        gap: 20,
+        alignContent: 'center'
     }
 });
 

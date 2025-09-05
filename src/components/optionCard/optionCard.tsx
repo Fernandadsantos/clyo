@@ -12,7 +12,7 @@ function OptionCard({ title, subtitle }: OptionCardParams) {
 
     return (
         <View >
-            <CardComponent width={width * 0.81} height={height * 0.12} type='elevated'>
+            <CardComponent width={width * 0.81} height={height * 0.12} type='elevated' paddingHorizontal={16}>
                 <View style={{ gap: 5 }}>
                     <Text style={styles.title}>{title}</Text>
                     <Text style={[styles.subtitle, { width: width * 0.68 }]}>{subtitle}</Text>

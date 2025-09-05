@@ -5,19 +5,25 @@ import { ReactNode } from 'react';
 interface CardParams {
     children: ReactNode;
     width: number;
-    height: number;
+    height?: number;
     type?: 'elevated' | 'outlined' | 'contained' | undefined;
+    marginV?: number;
+    backgroundColor?: string;
+    justifyContent?: "center" | "flex-start" | "flex-end" | "space-between" | "space-around" | "space-evenly";
+    paddingHorizontal?: number;
 }
 
-function CardComponent({ children, width, height, type }: CardParams) {
+function CardComponent({ children, width, height, type, marginV, backgroundColor, justifyContent, paddingHorizontal }: CardParams) {
 
     return (
         <View >
             <Card mode={type} style={[
                 styles.card,
-                { width: width, height: height }
+                { width: width, height: height !== undefined ? height : 'auto', backgroundColor: backgroundColor !== undefined ? backgroundColor : "#fef7ff" },
+                { marginVertical: marginV !== undefined ? marginV : 20 },
+                { justifyContent: justifyContent !== undefined ? justifyContent : "center" }
             ]}>
-                <Card.Content style={styles.text_card}>
+                <Card.Content style={[styles.text_card, { paddingHorizontal: paddingHorizontal !== undefined ? paddingHorizontal : 0 }]}>
                     {
                         children ??
                         (
@@ -26,20 +32,18 @@ function CardComponent({ children, width, height, type }: CardParams) {
                     }
                 </Card.Content>
             </Card>
-        </View>
+        </View >
     );
 }
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: "#fef7ff",
-        justifyContent: 'center',
         margin: 'auto',
-        marginVertical: 20
     },
     text_card: {
         flexDirection: 'row',
         alignItems: 'center',
+        paddingVertical: 0,
     }
 });
 

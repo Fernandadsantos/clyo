@@ -6,18 +6,18 @@ function CardInsight() {
     const { width, height } = useWindowDimensions();
 
     return (
-        <View >
+        <View  >
             <CardComponent width={width * 0.88} height={height * 0.1} type='outlined'>
                 <View style={styles.card_content}>
                     <View style={styles.iconContainer}>
                         <Icon name="lightbulb" size={20} color="#301F58" iconStyle='solid' />
                     </View>
                     <View>
-                        <Text style={[styles.text_card, { width: width * 0.6 }]}>Oscilações de humor estão mais frequentes com picos de insônia </Text>
+                        <Text style={[styles.text_card, { width: width * 0.7 }]}>A funcionalidade de Insights ainda não está disponível</Text>
                     </View>
-                    <View>
+                    {/* <View>
                         <Icon name="arrow-right" size={25} color="#875AEC" iconStyle='solid' />
-                    </View>
+                    </View> */}
                 </View>
             </CardComponent>
         </View>
@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     card_content: {
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 10
+        gap: 10,
+        padding: 16
     },
     text_card: {
         fontSize: 15,
